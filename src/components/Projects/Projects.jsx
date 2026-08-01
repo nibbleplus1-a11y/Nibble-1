@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import FeaturedProject from "./FeaturedProject";
 import ProjectCard from "./ProjectCard";
-import projects from "./projectsData";
+import projects from "./ProjectsData";
 
 function Projects() {
   // Get Featured Project
