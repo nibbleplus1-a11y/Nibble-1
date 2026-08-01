@@ -1,11 +1,11 @@
-import nadeemsons from "../../assets/images/projects/nadeemsons.png";
-import earthstory from "../../assets/images/projects/earthstory.png";
-import horsepanels from "../../assets/images/projects/horsepanels.png";
-import golfbasket from "../../assets/images/projects/golfbasket.png";
-import ecomhabibi from "../../assets/images/projects/ecomhabibi.png";
-import codecanvas from "../../assets/images/projects/codecanvas.png";
-import flowingtoday from "../../assets/images/projects/flowingtoday.png";
-import militiachronicles from "../../assets/images/projects/militiachronicles.png";
+import nadeemsons from "../../assets/images/Projects/nadeemsons.png";
+import earthstory from "../../assets/images/Projects/earthstory.png";
+import horsepanels from "../../assets/images/Projects/horsepanels.png";
+import golfbasket from "../../assets/images/Projects/golfbasket.png";
+import ecomhabibi from "../../assets/images/Projects/ecomhabibi.png";
+import codecanvas from "../../assets/images/Projects/codecanvas.png";
+import flowingtoday from "../../assets/images/Projects/flowingtoday.png";
+import militiachronicles from "../../assets/images/Projects/militiachronicles.png";
 
 const projects = [
   {
