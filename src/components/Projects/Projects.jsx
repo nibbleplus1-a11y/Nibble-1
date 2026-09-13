@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import FeaturedProject from "./FeaturedProject";
+import FlagshipProjectCard from "./FlagshipProjectCard";
 import ProjectCard from "./ProjectCard";
 import projects from "./ProjectsData";
 
@@ -9,9 +10,14 @@ function Projects() {
     (project) => project.featured
   );
 
-  // Get Remaining Projects
+  // Get Flagship Projects
+  const flagshipProjects = projects.filter(
+    (project) => project.flagship
+  );
+
+  // Get Remaining Client Projects
   const otherProjects = projects.filter(
-    (project) => !project.featured
+    (project) => !project.featured && !project.flagship
   );
 
   return (
@@ -68,6 +74,41 @@ function Projects() {
           <FeaturedProject project={featuredProject} />
         )}
 
+        {/* Flagship Products Section */}
+        {flagshipProjects.length > 0 && (
+          <div className="mb-28">
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.15 }}
+              className="mb-14 text-center md:text-left"
+            >
+              <div className="inline-flex items-center gap-2 rounded-full border border-cyan-400/30 bg-cyan-400/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-cyan-300 mb-4">
+                ✦ Flagship Innovations
+              </div>
+
+              <h3 className="text-4xl font-black md:text-5xl text-white">
+                Engineered for Scale & Impact
+              </h3>
+
+              <p className="mt-4 max-w-2xl text-slate-400">
+                Explore our high-scale mobile applications and autonomous AI SaaS platforms built with cutting-edge engineering.
+              </p>
+            </motion.div>
+
+            <div className="space-y-16">
+              {flagshipProjects.map((project, index) => (
+                <FlagshipProjectCard
+                  key={project.id}
+                  project={project}
+                  index={index}
+                />
+              ))}
+            </div>
+          </div>
+        )}
+
         {/* Other Projects Heading */}
         <motion.div
           initial={{ opacity: 0 }}
@@ -77,11 +118,11 @@ function Projects() {
           className="mb-12"
         >
           <h3 className="text-4xl font-bold">
-            More Projects
+            Client & Web Solutions
           </h3>
 
           <p className="mt-3 text-slate-400">
-            A selection of websites and applications we've recently built.
+            A selection of websites, e-commerce stores, and digital platforms we've delivered for global clients.
           </p>
         </motion.div>
 
@@ -113,4 +154,4 @@ function Projects() {
   );
 }
 
-export default Projects;
+export default Projects;

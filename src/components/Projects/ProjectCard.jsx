@@ -84,7 +84,7 @@ function ProjectCard({ project }) {
               hover:shadow-[0_0_30px_rgba(34,211,238,0.4)]
             "
           >
-            View Project ↗
+            {project.live?.includes("play.google.com") ? "Play Store ↗" : "View Project ↗"}
           </a>
         </div>
 
@@ -177,7 +177,7 @@ function ProjectCard({ project }) {
           >
             <FaExternalLinkAlt />
 
-            View Live
+            {project.live?.includes("play.google.com") ? "Google Play" : "View Live"}
           </a>
 
           {project.github && (
