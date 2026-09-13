@@ -23,50 +23,64 @@ function Projects() {
   return (
     <section
       id="projects"
-      className="relative overflow-hidden bg-[#05070D] py-32 text-white"
+      className="relative overflow-hidden bg-[#030712] py-32 text-white"
     >
       {/* Background Grid */}
       <div
-        className="absolute inset-0 opacity-[0.035]"
+        className="absolute inset-0 opacity-[0.03]"
         style={{
-          backgroundImage: `
-            linear-gradient(rgba(255,255,255,.12) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(255,255,255,.12) 1px, transparent 1px)
-          `,
-          backgroundSize: "50px 50px",
+          backgroundImage: `radial-gradient(rgba(255,255,255,0.7) 1px, transparent 1px)`,
+          backgroundSize: "28px 28px",
         }}
       />
 
-      {/* Glow */}
-      <div className="absolute left-1/2 top-0 h-[650px] w-[650px] -translate-x-1/2 rounded-full bg-cyan-400/10 blur-[220px]" />
+      {/* Ambient glows */}
+      <div className="absolute left-1/2 top-0 h-[700px] w-[700px] -translate-x-1/2 rounded-full bg-cyan-400/8 blur-[250px] pointer-events-none" />
+      <div className="absolute right-0 bottom-0 h-[400px] w-[400px] rounded-full bg-violet-600/8 blur-[200px] pointer-events-none" />
 
       <div className="relative mx-auto max-w-7xl px-6">
-        {/* Heading */}
+
+        {/* Section Heading */}
         <motion.div
           initial={{ opacity: 0, y: 35 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          className="mb-24 text-center"
+          className="mb-24"
         >
-          <p className="mb-4 uppercase tracking-[0.35em] text-cyan-400">
-            Portfolio
-          </p>
+          <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+            <div>
+              <div className="badge-cyan mb-5">
+                ✦ Portfolio
+              </div>
 
-          <h2 className="text-5xl font-black md:text-6xl">
-            Our Latest
-            <br />
+              <h2 className="text-5xl font-black leading-tight md:text-6xl">
+                Products &
+                <br />
+                <span className="gradient-text-brand">Client Work</span>
+              </h2>
 
-            <span className="bg-gradient-to-r from-cyan-300 via-cyan-400 to-cyan-500 bg-clip-text text-transparent">
-              Projects
-            </span>
-          </h2>
+              <p className="mt-6 max-w-xl text-lg leading-8 text-slate-400">
+                From 10K+ download mobile apps to autonomous AI SaaS platforms — every build pushes what's possible.
+              </p>
+            </div>
 
-          <p className="mx-auto mt-8 max-w-3xl text-lg leading-8 text-slate-400">
-            Every project reflects our passion for creating modern,
-            responsive, and high-performing digital experiences that help
-            businesses grow online.
-          </p>
+            {/* Stats mini-grid */}
+            <div className="flex gap-8 md:gap-12 shrink-0">
+              <div className="text-center">
+                <p className="stat-number text-4xl">17+</p>
+                <p className="mt-1 text-xs uppercase tracking-wider text-slate-500">Projects</p>
+              </div>
+              <div className="text-center">
+                <p className="stat-number text-4xl">10K+</p>
+                <p className="mt-1 text-xs uppercase tracking-wider text-slate-500">App Downloads</p>
+              </div>
+              <div className="text-center">
+                <p className="stat-number text-4xl">6+</p>
+                <p className="mt-1 text-xs uppercase tracking-wider text-slate-500">Countries</p>
+              </div>
+            </div>
+          </div>
         </motion.div>
 
         {/* Featured Project */}
@@ -78,22 +92,23 @@ function Projects() {
         {flagshipProjects.length > 0 && (
           <div className="mb-28">
             <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.15 }}
-              className="mb-14 text-center md:text-left"
+              className="mb-14"
             >
-              <div className="inline-flex items-center gap-2 rounded-full border border-cyan-400/30 bg-cyan-400/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-cyan-300 mb-4">
+              <div className="badge-violet mb-4">
                 ✦ Flagship Innovations
               </div>
 
               <h3 className="text-4xl font-black md:text-5xl text-white">
-                Engineered for Scale & Impact
+                Engineered for Scale
+                <span className="gradient-text-brand"> & Impact</span>
               </h3>
 
               <p className="mt-4 max-w-2xl text-slate-400">
-                Explore our high-scale mobile applications and autonomous AI SaaS platforms built with cutting-edge engineering.
+                Our high-scale mobile applications and autonomous AI SaaS platforms — built with cutting-edge engineering and proven in production.
               </p>
             </motion.div>
 
@@ -109,49 +124,49 @@ function Projects() {
           </div>
         )}
 
-        {/* Other Projects Heading */}
+        {/* Client Work Heading */}
         <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
           className="mb-12"
         >
-          <h3 className="text-4xl font-bold">
-            Client & Web Solutions
+          <div className="flex items-center gap-4">
+            <div className="h-px flex-1 bg-gradient-to-r from-cyan-400/30 to-transparent" />
+            <span className="text-xs font-bold uppercase tracking-[0.3em] text-cyan-400">
+              Client & Web Solutions
+            </span>
+            <div className="h-px flex-1 bg-gradient-to-l from-violet-400/30 to-transparent" />
+          </div>
+
+          <h3 className="mt-8 text-4xl font-bold">
+            Delivered for Global Clients
           </h3>
 
           <p className="mt-3 text-slate-400">
-            A selection of websites, e-commerce stores, and digital platforms we've delivered for global clients.
+            A curated selection of websites, e-commerce platforms, and digital solutions built for clients worldwide.
           </p>
         </motion.div>
 
-        {/* Grid */}
+        {/* Project Grid */}
         <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
           {otherProjects.map((project, index) => (
             <motion.div
               key={project.id}
-              initial={{
-                opacity: 0,
-                y: 40,
-              }}
-              whileInView={{
-                opacity: 1,
-                y: 0,
-              }}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{
-                duration: 0.5,
-                delay: index * 0.08,
-              }}
+              transition={{ duration: 0.5, delay: index * 0.07 }}
             >
               <ProjectCard project={project} />
             </motion.div>
           ))}
         </div>
+
       </div>
     </section>
   );
 }
 
-export default Projects;
+export default Projects;

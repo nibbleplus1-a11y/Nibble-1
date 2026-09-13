@@ -1,139 +1,109 @@
 import { motion } from "framer-motion";
-import {
-  FaSearch,
-  FaClipboardList,
-  FaPencilRuler,
-  FaCode,
-  FaBug,
-  FaRocket,
-} from "react-icons/fa";
+
+const steps = [
+  {
+    num: "01",
+    label: "Discovery call",
+    time: "Day 1",
+    detail: "30-min call. You explain the vision, we ask the right questions. No fluff.",
+  },
+  {
+    num: "02",
+    label: "Scope & quote",
+    time: "Day 2–3",
+    detail: "We send a clear proposal — features, timeline, price. No surprises later.",
+  },
+  {
+    num: "03",
+    label: "Design & build",
+    time: "Week 1–N",
+    detail: "We start building. You get regular updates, not radio silence.",
+  },
+  {
+    num: "04",
+    label: "Review & refine",
+    time: "Final week",
+    detail: "You test it, we fix it. Two rounds of revisions included. No nickle-and-diming.",
+  },
+  {
+    num: "05",
+    label: "Launch & handoff",
+    time: "Launch day",
+    detail: "Your product goes live. We hand over everything — code, credentials, docs.",
+  },
+  {
+    num: "06",
+    label: "Support & grow",
+    time: "Ongoing",
+    detail: "We don't disappear. Updates, new features, or just advice — we're still here.",
+  },
+];
 
 function Process() {
-  const steps = [
-    {
-      title: "Discover",
-      icon: FaSearch,
-      description:
-        "We understand your business goals, audience, and project requirements.",
-    },
-    {
-      title: "Planning",
-      icon: FaClipboardList,
-      description:
-        "A detailed roadmap is prepared with timelines, features, and milestones.",
-    },
-    {
-      title: "Design",
-      icon: FaPencilRuler,
-      description:
-        "Modern UI/UX designs are created with user experience at the center.",
-    },
-    {
-      title: "Development",
-      icon: FaCode,
-      description:
-        "Our developers build scalable, secure, and high-performance solutions.",
-    },
-    {
-      title: "Testing",
-      icon: FaBug,
-      description:
-        "Every feature is tested thoroughly to ensure reliability and quality.",
-    },
-    {
-      title: "Launch",
-      icon: FaRocket,
-      description:
-        "After deployment, we continue providing support and future improvements.",
-    },
-  ];
-
   return (
-    <section className="py-28">
+    <section className="relative overflow-hidden py-28">
+      <div className="pointer-events-none absolute left-0 bottom-0 h-[400px] w-[400px] rounded-full bg-cyan-400/6 blur-[180px]" />
+
       <div className="mx-auto max-w-7xl px-6">
+
         {/* Heading */}
         <motion.div
           initial={{ opacity: 0, y: 25 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="mb-16 text-center"
+          className="mb-16"
         >
-          <p className="mb-3 uppercase tracking-[0.35em] text-cyan-400">
-            Our Process
-          </p>
-
-          <h2 className="text-5xl font-black">
-            How We Bring Ideas To Life
+          <div className="badge-cyan mb-5">✦ The Process</div>
+          <h2 className="text-5xl font-black leading-tight md:text-6xl">
+            From idea to live <br />
+            <span className="gradient-text-brand">in weeks, not months.</span>
           </h2>
-
-          <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-slate-400">
-            We follow a proven workflow that keeps every project organized,
-            transparent, and focused on delivering exceptional results.
-          </p>
         </motion.div>
 
-        {/* Process Grid */}
-        <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
-          {steps.map((step, index) => {
-            const Icon = step.icon;
+        {/* Timeline — horizontal scrollable on mobile, grid on desktop */}
+        <div className="relative">
+          {/* Connector line (desktop only) */}
+          <div className="absolute top-5 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent hidden md:block" />
 
-            return (
+          <div className="grid gap-px md:grid-cols-3 lg:grid-cols-6">
+            {steps.map((step, i) => (
               <motion.div
-                key={step.title}
-                initial={{ opacity: 0, y: 35 }}
+                key={step.num}
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{
-                  duration: 0.5,
-                  delay: index * 0.1,
-                }}
-                whileHover={{
-                  y: -8,
-                  scale: 1.02,
-                }}
-                className="
-                  group
-                  relative
-                  overflow-hidden
-                  rounded-3xl
-                  border
-                  border-white/10
-                  bg-white/[0.03]
-                  p-8
-                  backdrop-blur-xl
-                  transition-all
-                  duration-300
-                  hover:border-cyan-400/40
-                  hover:shadow-[0_0_35px_rgba(34,211,238,0.18)]
-                "
+                transition={{ delay: i * 0.09, duration: 0.5 }}
+                className="group relative p-6 border border-white/[0.06] bg-white/[0.01] hover:bg-white/[0.04] transition-all duration-300"
               >
-                {/* Step Number */}
-                <div className="absolute right-6 top-6 text-5xl font-black text-white/5">
-                  {String(index + 1).padStart(2, "0")}
+                {/* Step dot on line */}
+                <div className="absolute -top-[5px] left-6 hidden h-[10px] w-[10px] rounded-full border-2 border-slate-700 bg-[#030712] transition-all duration-300 group-hover:border-cyan-400 md:block" />
+
+                <div className="mb-4 mt-4 md:mt-6">
+                  <span className="text-[10px] font-black tracking-[0.3em] text-slate-700 group-hover:text-cyan-400 transition-colors">
+                    {step.num}
+                  </span>
+                  <div className="mt-0.5 text-[10px] text-slate-700">{step.time}</div>
                 </div>
 
-                {/* Icon */}
-                <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-cyan-400/10 text-cyan-400 transition-all duration-300 group-hover:bg-cyan-400 group-hover:text-black">
-                  <Icon size={28} />
-                </div>
-
-                {/* Title */}
-                <h3 className="text-2xl font-bold">
-                  {step.title}
-                </h3>
-
-                {/* Description */}
-                <p className="mt-5 leading-8 text-slate-400">
-                  {step.description}
+                <h3 className="text-base font-bold text-white">{step.label}</h3>
+                <p className="mt-2 text-xs leading-6 text-slate-600 group-hover:text-slate-400 transition-colors">
+                  {step.detail}
                 </p>
-
-                {/* Bottom Accent */}
-                <div className="absolute bottom-0 left-0 h-1 w-0 bg-cyan-400 transition-all duration-500 group-hover:w-full" />
               </motion.div>
-            );
-          })}
+            ))}
+          </div>
         </div>
+
+        {/* Bottom note */}
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.6 }}
+          className="mt-8 text-xs text-slate-700"
+        >
+          * Timelines vary by project complexity. Simple sites: 1–2 weeks. Full apps: 4–8 weeks.
+        </motion.p>
       </div>
     </section>
   );

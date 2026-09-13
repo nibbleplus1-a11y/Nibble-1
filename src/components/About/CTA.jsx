@@ -1,67 +1,78 @@
 import { motion } from "framer-motion";
+import { FaWhatsapp, FaEnvelope } from "react-icons/fa";
 
 function CTA() {
   return (
-    <section className="relative overflow-hidden py-28">
-      {/* Background Glow */}
-      <div className="absolute left-1/2 top-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-cyan-400/10 blur-[180px]" />
+    <section className="relative overflow-hidden py-24">
+      {/* Big blurred accent behind */}
+      <div
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background:
+            "radial-gradient(ellipse 60% 70% at 50% 50%, rgba(124,58,237,0.08) 0%, rgba(34,211,238,0.04) 60%, transparent 100%)",
+        }}
+      />
 
-      <div className="relative mx-auto max-w-6xl px-6">
+      <div className="relative mx-auto max-w-5xl px-6">
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          className="
-            rounded-[40px]
-            border
-            border-white/10
-            bg-white/[0.03]
-            px-10
-            py-20
-            text-center
-            backdrop-blur-xl
-            shadow-[0_0_50px_rgba(34,211,238,0.08)]
-          "
+          className="relative overflow-hidden rounded-[32px] border border-white/10 p-10 md:p-16"
+          style={{
+            background:
+              "linear-gradient(135deg, rgba(8,18,40,0.95) 0%, rgba(12,8,35,0.95) 100%)",
+          }}
         >
-          <p className="mb-3 uppercase tracking-[0.35em] text-cyan-400">
-            Let's Work Together
-          </p>
+          {/* Corner decorations */}
+          <div className="pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full bg-violet-500/10 blur-[100px]" />
+          <div className="pointer-events-none absolute -left-20 -bottom-20 h-64 w-64 rounded-full bg-cyan-400/8 blur-[100px]" />
 
-          <h2 className="mx-auto max-w-4xl text-5xl font-black leading-tight md:text-6xl">
-            Ready to Build Something
-            <br />
-            <span className="bg-gradient-to-r from-cyan-300 via-cyan-400 to-cyan-500 bg-clip-text text-transparent">
-              Amazing?
-            </span>
-          </h2>
+          {/* Content */}
+          <div className="relative flex flex-col gap-10 md:flex-row md:items-center md:justify-between">
+            <div className="max-w-xl">
+              <p className="text-xs font-black uppercase tracking-[0.3em] text-violet-400 mb-4">
+                Let's talk
+              </p>
+              <h2 className="text-4xl font-black leading-tight md:text-5xl text-white">
+                Got a project in mind?
+                <br />
+                <span className="gradient-text-brand">We want to hear it.</span>
+              </h2>
+              <p className="mt-5 text-slate-400 leading-7">
+                No forms, no sales process. Just reach out directly —{" "}
+                <span className="text-white font-medium">WhatsApp or email</span>.
+                We reply fast.
+              </p>
+            </div>
 
-          <p className="mx-auto mt-8 max-w-3xl text-lg leading-8 text-slate-400">
-            Whether you're launching a startup, growing your business, or
-            transforming your online presence, we're ready to turn your ideas
-            into exceptional digital experiences.
-          </p>
+            {/* Direct contact buttons */}
+            <div className="flex shrink-0 flex-col gap-3">
+              <a
+                href="https://wa.me/923098680902"
+                target="_blank"
+                rel="noreferrer"
+                className="group flex items-center gap-3 rounded-2xl bg-[#25D366] px-6 py-4 font-bold text-black transition-all duration-300 hover:opacity-90 hover:shadow-[0_0_30px_rgba(37,211,102,0.35)] hover:-translate-y-0.5"
+              >
+                <FaWhatsapp size={20} />
+                WhatsApp us now
+              </a>
+              <a
+                href="https://mail.google.com/mail/?view=cm&fs=1&to=nibbleplus1@gmail.com&su=Project%20Inquiry"
+                target="_blank"
+                rel="noreferrer"
+                className="group flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-6 py-4 font-semibold text-white transition-all duration-300 hover:border-cyan-400/50 hover:bg-cyan-400/8 hover:-translate-y-0.5"
+              >
+                <FaEnvelope size={16} className="text-cyan-400" />
+                nibbleplus1@gmail.com
+              </a>
 
-          <div className="mt-12 flex justify-center">
-            <a
-              href="#contact"
-              className="
-    rounded-xl
-    border
-    border-cyan-400/20
-    bg-white/[0.03]
-    px-8
-    py-4
-    font-semibold
-    transition-all
-    duration-300
-    hover:-translate-y-1
-    hover:border-cyan-400
-    hover:bg-cyan-400/10
-  "
-            >
-              Contact Us
-            </a>
+              {/* Response time note */}
+              <p className="text-center text-[11px] text-slate-700">
+                ⚡ Average response time: under 2 hours
+              </p>
+            </div>
           </div>
         </motion.div>
       </div>

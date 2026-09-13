@@ -1,126 +1,254 @@
-import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import { FaArrowRight, FaGooglePlay, FaWhatsapp } from "react-icons/fa";
+import waverii from "../../assets/images/Projects/waverii.png";
+import quranapp from "../../assets/images/Projects/quranapp.png";
+import claylite from "../../assets/images/Projects/claylite.png";
+
+const EASE = [0.16, 1, 0.3, 1];
+
+/* ── stagger children ── */
+const container = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.12, delayChildren: 0.1 } },
+};
+const item = {
+  hidden: { opacity: 0, y: 28 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.75, ease: EASE } },
+};
 
 function Hero() {
   return (
     <section
       id="home"
-      className="relative overflow-hidden bg-[#05070D] text-white"
+      className="relative overflow-hidden bg-[#030712] text-white"
+      style={{ minHeight: "100svh" }}
     >
-      {/* Background Grid */}
+      {/* ─── Background ─────────────────────────────────── */}
+
+      {/* Grain texture */}
       <div
-        className="absolute inset-0 opacity-[0.035]"
+        className="pointer-events-none absolute inset-0 z-0 opacity-[0.022]"
         style={{
-          backgroundImage: `
-            linear-gradient(rgba(255,255,255,.12) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(255,255,255,.12) 1px, transparent 1px)
-          `,
-          backgroundSize: "50px 50px",
+          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`,
+          backgroundSize: "180px",
         }}
       />
 
-      {/* Cyan Glow */}
-      <div className="absolute left-1/2 top-44 h-[500px] w-[500px] -translate-x-[70%] rounded-full bg-cyan-400/10 blur-[190px]" />
-      <div className="absolute left-1/2 top-72 h-[420px] w-[420px] translate-x-[45%] rounded-full bg-cyan-500/10 blur-[180px]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(34,211,238,0.08),transparent_55%)]" />
+      {/* Single clean diagonal sweep of light — no orbs */}
+      <div
+        className="pointer-events-none absolute inset-0 z-0"
+        style={{
+          background:
+            "conic-gradient(from 230deg at 55% 30%, rgba(124,58,237,0.11) 0deg, rgba(34,211,238,0.07) 60deg, transparent 120deg)",
+        }}
+      />
 
-      {/* Hero Content */}
-      <div className="relative mx-auto flex min-h-[calc(100vh-88px)] max-w-5xl flex-col items-center justify-center px-6 pt-36 pb-32 text-center">
-        {/* Welcome Badge */}
+      {/* Faint horizontal rule lines for depth */}
+      <div
+        className="pointer-events-none absolute inset-0 z-0 opacity-[0.03]"
+        style={{
+          backgroundImage: "linear-gradient(transparent calc(100% - 1px), rgba(255,255,255,0.5) 1px)",
+          backgroundSize: "100% 80px",
+        }}
+      />
+
+      {/* ─── Main Grid ──────────────────────────────────── */}
+      <div className="relative z-10 mx-auto grid min-h-screen max-w-[1400px] grid-cols-1 gap-0 px-6 pt-28 pb-0 lg:grid-cols-[1fr_1fr] lg:gap-16 lg:px-12 lg:pt-0 xl:px-20">
+
+        {/* ══ LEFT COLUMN ═══════════════════════════════ */}
         <motion.div
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="mb-8"
+          variants={container}
+          initial="hidden"
+          animate="show"
+          className="flex flex-col justify-center py-16 lg:py-0"
         >
-          <span className="rounded-full border border-cyan-400/20 bg-cyan-400/10 px-5 py-2 text-sm font-medium tracking-wide text-cyan-300 backdrop-blur-md">
-            ✦ Welcome to Nibble+1
-          </span>
+          {/* Status pill */}
+          <motion.div variants={item} className="mb-10 flex items-center gap-3">
+            <div className="flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3.5 py-1.5 text-[11px] font-bold uppercase tracking-widest text-emerald-400">
+              <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-emerald-400" />
+              Open for work
+            </div>
+            <span className="text-[11px] text-slate-700">· Est. 2024 · Pakistan</span>
+          </motion.div>
+
+          {/* ── The Headline ── */}
+          <motion.h1
+            variants={item}
+            className="font-black leading-none tracking-[-0.04em]"
+            style={{ fontSize: "clamp(52px, 7.5vw, 110px)" }}
+          >
+            {/* Line 1 — solid */}
+            <span className="block text-white">Products</span>
+
+            {/* Line 2 — brand gradient */}
+            <span
+              className="block"
+              style={{
+                background: "linear-gradient(135deg, #22D3EE 0%, #a78bfa 55%, #22D3EE 100%)",
+                backgroundSize: "200% auto",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
+                animation: "gradient-shift 5s ease infinite",
+              }}
+            >
+              that scale.
+            </span>
+
+            {/* Line 3 — muted, thinner weight */}
+            <span
+              className="block font-light text-slate-600"
+              style={{ fontSize: "clamp(28px, 4vw, 56px)", marginTop: "0.15em" }}
+            >
+              Websites · Apps · AI SaaS
+            </span>
+          </motion.h1>
+
+          {/* Sub-copy */}
+          <motion.p
+            variants={item}
+            className="mt-8 max-w-[480px] text-[15px] leading-[1.8] text-slate-500"
+          >
+            We're a small studio that ships fast and doesn't disappear
+            after launch. From a{" "}
+            <span className="font-medium text-slate-300">Quran app with 10K+ downloads</span>
+            {" "}to{" "}
+            <span className="font-medium text-slate-300">AI SaaS platforms</span>
+            {" "}— everything we build is production-grade.
+          </motion.p>
+
+          {/* CTA buttons */}
+          <motion.div variants={item} className="mt-10 flex flex-wrap items-center gap-4">
+            <a
+              href="#contact"
+              className="group flex items-center gap-3 rounded-2xl bg-white px-7 py-4 text-[13px] font-black text-black transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_0_50px_rgba(255,255,255,0.15)]"
+            >
+              Start a project
+              <FaArrowRight className="transition-transform duration-300 group-hover:translate-x-1" size={12} />
+            </a>
+            <a
+              href="https://wa.me/923098680902"
+              target="_blank"
+              rel="noreferrer"
+              className="flex items-center gap-2.5 rounded-2xl border border-white/10 bg-white/[0.04] px-6 py-4 text-[13px] font-semibold text-slate-300 backdrop-blur-sm transition-all duration-300 hover:border-emerald-500/40 hover:text-emerald-400"
+            >
+              <FaWhatsapp size={15} />
+              WhatsApp us
+            </a>
+          </motion.div>
+
+          {/* ── Social proof strip ── */}
+          <motion.div
+            variants={item}
+            className="mt-14 flex items-center gap-7 border-t border-white/[0.06] pt-8"
+          >
+            {[
+              { n: "17+", l: "Projects" },
+              { n: "10K+", l: "App Downloads" },
+              { n: "4.8★", l: "Play Store" },
+            ].map(({ n, l }, i) => (
+              <div key={i} className={i > 0 ? "border-l border-white/10 pl-7" : ""}>
+                <p className="text-2xl font-black text-white">{n}</p>
+                <p className="mt-0.5 text-[11px] uppercase tracking-widest text-slate-700">{l}</p>
+              </div>
+            ))}
+          </motion.div>
         </motion.div>
 
-        {/* Heading */}
-        <motion.h1
-          initial={{ opacity: 0, y: 25 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.15, duration: 0.7 }}
-          className="text-5xl font-black leading-[1.05] tracking-tight md:text-6xl lg:text-7xl"
-        >
-          Building
-          <br />
-          <span className="bg-gradient-to-r from-cyan-300 via-cyan-400 to-cyan-500 bg-clip-text text-transparent">
-            Digital Experiences
-          </span>
-          <br />
-          <span className="text-white transition duration-300 hover:text-cyan-100">
-            That Matter.
-          </span>
-        </motion.h1>
+        {/* ══ RIGHT COLUMN — Visual ═════════════════════ */}
+        <div className="relative hidden items-center justify-center lg:flex">
 
-        {/* Description */}
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.35, duration: 0.7 }}
-          className="mx-auto mt-8 max-w-2xl text-lg leading-8 text-slate-400"
-        >
-          We craft modern websites, scalable web applications, mobile
-          applications and intelligent digital solutions that help startups and
-          businesses build a stronger online presence.
-        </motion.p>
-
-        {/* Buttons */}
-        <motion.div
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.55, duration: 0.7 }}
-          className="mt-12 flex flex-wrap justify-center gap-5"
-        >
-          <a
-            href="#contact"
-            className="
-    rounded-xl
-    bg-cyan-400
-    px-6
-    py-2.5
-    font-semibold
-    text-black
-    transition-all
-    duration-300
-    hover:-translate-y-1
-    hover:bg-cyan-300
-    hover:shadow-[0_0_25px_rgba(34,211,238,0.45)]
-  "
+          {/* ── Main browser mockup ── */}
+          <motion.div
+            initial={{ opacity: 0, y: 40, scale: 0.97 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ delay: 0.35, duration: 1, ease: EASE }}
+            className="relative w-full max-w-[560px]"
           >
-            Get Started
-          </a>
+            {/* Browser chrome */}
+            <div className="overflow-hidden rounded-[20px] border border-white/12 shadow-[0_40px_100px_rgba(0,0,0,0.7)]">
+              {/* Title bar */}
+              <div className="flex items-center gap-2 border-b border-white/8 bg-[#0f1117] px-4 py-3">
+                <div className="flex items-center gap-1.5">
+                  <span className="h-2.5 w-2.5 rounded-full bg-[#FF5F57]" />
+                  <span className="h-2.5 w-2.5 rounded-full bg-[#FFBD2E]" />
+                  <span className="h-2.5 w-2.5 rounded-full bg-[#28C840]" />
+                </div>
+                <div className="mx-auto flex items-center gap-1.5 rounded-full bg-white/5 px-3 py-1 text-[10px] text-slate-500">
+                  <span className="text-emerald-500 text-[8px]">●</span>
+                  waverii.com
+                </div>
+              </div>
 
-          <a
-            href="#projects"
-            className="
-    rounded-xl
-    border
-    border-cyan-400/20
-    bg-white/[0.03]
-    px-8
-    py-3
-    font-semibold
-    backdrop-blur-md
-    transition-all
-    duration-300
-    hover:-translate-y-1
-    hover:border-cyan-400
-    hover:bg-cyan-400/10
-  "
-          >
-            View Projects
-          </a>
-        </motion.div>
+              {/* Screenshot */}
+              <div className="relative overflow-hidden bg-[#0f1117]">
+                <img
+                  src={waverii}
+                  alt="Waverii — surf travel platform"
+                  className="w-full object-cover object-top"
+                  style={{ maxHeight: "360px" }}
+                />
+              </div>
+            </div>
+
+            {/* ── Floating chip: 10K downloads — sits BELOW the browser, left-aligned ── */}
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.75, duration: 0.7, ease: EASE }}
+              className="absolute -bottom-5 left-4 flex items-center gap-3 rounded-2xl border border-white/12 bg-[#0d1117]/95 px-4 py-3 backdrop-blur-xl shadow-[0_20px_60px_rgba(0,0,0,0.6)]"
+            >
+              <img src={quranapp} alt="Quran App" className="h-9 w-9 rounded-xl object-cover" />
+              <div>
+                <p className="text-[11px] font-semibold text-white">Al-Quran Kareem</p>
+                <div className="mt-0.5 flex items-baseline gap-1">
+                  <span className="text-lg font-black text-cyan-400">10K+</span>
+                  <span className="text-[10px] text-slate-500">downloads</span>
+                </div>
+              </div>
+              <FaGooglePlay className="ml-1 text-emerald-400 opacity-80" size={13} />
+            </motion.div>
+
+            {/* ── Floating chip: AI SaaS — right side, vertically centered ── */}
+            <motion.div
+              initial={{ opacity: 0, x: 16 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.9, duration: 0.7, ease: EASE }}
+              className="absolute -right-4 top-1/2 -translate-y-1/2 rounded-2xl border border-violet-400/20 bg-[#0d1117]/95 p-3.5 backdrop-blur-xl shadow-[0_20px_60px_rgba(0,0,0,0.6)]"
+              style={{ width: 164 }}
+            >
+              <div className="flex items-center gap-1.5 mb-2">
+                <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-violet-400" />
+                <span className="text-[9px] font-black uppercase tracking-wider text-violet-400">AI SaaS · Live</span>
+              </div>
+              <p className="text-[12px] font-bold text-white">Clay Lite</p>
+              <p className="text-[10px] text-slate-500 mt-0.5 mb-3">AI Lead Enrichment</p>
+              <div className="flex gap-1.5">
+                <div className="rounded-lg bg-violet-500/15 px-2 py-1 text-[9px] font-bold text-violet-300">5K+ leads</div>
+                <div className="rounded-lg bg-white/5 px-2 py-1 text-[9px] font-semibold text-slate-400">95% accuracy</div>
+              </div>
+            </motion.div>
+
+            {/* ── Featured badge on browser ── */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 1.1, duration: 0.5 }}
+              className="absolute -top-4 right-8 rounded-full border border-cyan-400/30 bg-cyan-400/10 px-4 py-1.5 text-[11px] font-bold uppercase tracking-wider text-cyan-300 backdrop-blur-sm"
+            >
+              ★ Featured Work
+            </motion.div>
+          </motion.div>
+
+          {/* Background glow behind the mockup */}
+          <div className="pointer-events-none absolute inset-0 -z-10">
+            <div className="absolute left-1/2 top-1/2 h-96 w-96 -translate-x-1/2 -translate-y-1/2 rounded-full bg-violet-600/10 blur-[120px]" />
+          </div>
+        </div>
       </div>
 
-      {/* Divider */}
-      <div className="relative pb-8">
-        <div className="mx-auto h-px w-3/4 bg-gradient-to-r from-transparent via-cyan-400/30 to-transparent" />
-      </div>
+      {/* ─── Bottom fade ────────────────────────────────── */}
+      <div className="pointer-events-none absolute bottom-0 left-0 right-0 z-10 h-20 bg-gradient-to-t from-[#030712] to-transparent" />
     </section>
   );
 }
