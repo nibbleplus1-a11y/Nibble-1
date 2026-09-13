@@ -14,31 +14,31 @@ const comparisons = [
 function MissionVision() {
   return (
     <section className="py-10">
-      <div className="mx-auto max-w-7xl px-6">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 min-w-0">
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mb-10"
+          className="mb-8 sm:mb-10 min-w-0"
         >
-          <h2 className="text-3xl font-black md:text-4xl">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-black break-words">
             Why founders choose us{" "}
             <span className="gradient-text-brand">over the alternatives.</span>
           </h2>
-          <p className="mt-3 text-sm text-slate-600">
+          <p className="mt-2 sm:mt-3 text-xs sm:text-sm text-slate-500 break-words">
             (This is the part where we say what every agency says. We won't.)
           </p>
         </motion.div>
 
         {/* Comparison table */}
-        <div className="overflow-hidden rounded-2xl border border-white/8">
+        <div className="overflow-hidden rounded-xl sm:rounded-2xl border border-white/8 min-w-0">
           {/* Header */}
-          <div className="grid grid-cols-2 border-b border-white/8 bg-white/[0.03] px-6 py-3">
-            <span className="text-[11px] font-black uppercase tracking-widest text-cyan-400">
+          <div className="grid grid-cols-2 border-b border-white/8 bg-white/[0.03] px-3.5 sm:px-6 py-2.5 sm:py-3">
+            <span className="text-[10px] sm:text-[11px] font-black uppercase tracking-widest text-cyan-400">
               Nibble+1
             </span>
-            <span className="text-[11px] font-black uppercase tracking-widest text-slate-700">
+            <span className="text-[10px] sm:text-[11px] font-black uppercase tracking-widest text-slate-500 pl-3 sm:pl-4 border-l border-white/[0.05]">
               The other guys
             </span>
           </div>
@@ -51,17 +51,17 @@ function MissionVision() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.07 }}
-              className={`grid grid-cols-2 border-b border-white/[0.05] px-6 py-4 transition-colors hover:bg-white/[0.025] ${
+              className={`grid grid-cols-2 border-b border-white/[0.05] px-3.5 sm:px-6 py-3 sm:py-4 transition-colors hover:bg-white/[0.025] ${
                 i === comparisons.length - 1 ? "border-b-0" : ""
               }`}
             >
-              <div className="flex items-start gap-2.5 pr-4">
-                <FaCheckCircle className="mt-0.5 shrink-0 text-cyan-400 text-xs" />
-                <span className="text-sm text-slate-200">{row.us}</span>
+              <div className="flex items-start gap-2 sm:gap-2.5 pr-2 sm:pr-4 min-w-0">
+                <FaCheckCircle className="mt-0.5 shrink-0 text-cyan-400 text-[11px] sm:text-xs" />
+                <span className="text-xs sm:text-sm text-slate-200 break-words">{row.us}</span>
               </div>
-              <div className="flex items-start gap-2.5 pl-4 border-l border-white/[0.05]">
-                <span className="mt-0.5 shrink-0 text-xs text-slate-700">✕</span>
-                <span className="text-sm text-slate-700">{row.them}</span>
+              <div className="flex items-start gap-2 sm:gap-2.5 pl-3 sm:pl-4 border-l border-white/[0.05] min-w-0">
+                <span className="mt-0.5 shrink-0 text-xs text-slate-500">✕</span>
+                <span className="text-xs sm:text-sm text-slate-400 break-words">{row.them}</span>
               </div>
             </motion.div>
           ))}

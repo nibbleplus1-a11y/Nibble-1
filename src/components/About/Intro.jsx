@@ -24,8 +24,8 @@ function Intro() {
       <div className="absolute -left-40 top-0 h-[450px] w-[450px] rounded-full bg-violet-600/10 blur-[180px] pointer-events-none" />
       <div className="absolute -right-40 bottom-0 h-[400px] w-[400px] rounded-full bg-cyan-400/10 blur-[180px] pointer-events-none" />
 
-      <div className="relative mx-auto max-w-7xl px-6">
-        <div className="grid gap-16 lg:grid-cols-2 lg:gap-24 items-center">
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 min-w-0">
+        <div className="grid gap-12 sm:gap-16 lg:grid-cols-2 lg:gap-24 items-center min-w-0">
 
           {/* LEFT – Main statement */}
           <motion.div
@@ -33,12 +33,13 @@ function Intro() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
+            className="min-w-0"
           >
-            <div className="badge-cyan mb-6">
+            <div className="badge-cyan mb-4 sm:mb-6">
               ✦ About Nibble+1
             </div>
 
-            <h2 className="text-5xl font-black leading-[1.08] md:text-6xl">
+            <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black leading-tight sm:leading-[1.08] break-words">
               We Don't Just
               <br />
               Build Websites.
@@ -46,13 +47,13 @@ function Intro() {
               <span className="gradient-text-brand">We Build Futures.</span>
             </h2>
 
-            <p className="mt-8 text-lg leading-9 text-slate-400">
+            <p className="mt-5 sm:mt-8 text-base sm:text-lg leading-relaxed sm:leading-9 text-slate-400 break-words">
               Nibble+1 is a specialized digital product studio passionate about building
               modern solutions for startups, entrepreneurs, and global brands. We combine
               creativity, engineering, and AI to create digital products that actually grow your business.
             </p>
 
-            <p className="mt-4 text-lg leading-9 text-slate-400">
+            <p className="mt-3 sm:mt-4 text-base sm:text-lg leading-relaxed sm:leading-9 text-slate-400 break-words">
               From a Quran app with 10,000+ downloads to autonomous AI SaaS platforms —
               we build things that <span className="font-semibold text-white">scale, convert, and last.</span>
             </p>

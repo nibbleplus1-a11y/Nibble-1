@@ -44,17 +44,17 @@ function Process() {
     <section className="relative overflow-hidden py-28">
       <div className="pointer-events-none absolute left-0 bottom-0 h-[400px] w-[400px] rounded-full bg-cyan-400/6 blur-[180px]" />
 
-      <div className="mx-auto max-w-7xl px-6">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 min-w-0">
 
         {/* Heading */}
         <motion.div
           initial={{ opacity: 0, y: 25 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mb-16"
+          className="mb-12 sm:mb-16 min-w-0"
         >
-          <div className="badge-cyan mb-5">✦ The Process</div>
-          <h2 className="text-5xl font-black leading-tight md:text-6xl">
+          <div className="badge-cyan mb-4 sm:mb-5">✦ The Process</div>
+          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black leading-tight break-words">
             From idea to live <br />
             <span className="gradient-text-brand">in weeks, not months.</span>
           </h2>

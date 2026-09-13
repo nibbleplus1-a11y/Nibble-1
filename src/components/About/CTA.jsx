@@ -13,13 +13,13 @@ function CTA() {
         }}
       />
 
-      <div className="relative mx-auto max-w-5xl px-6">
+      <div className="relative mx-auto max-w-5xl px-4 sm:px-6 min-w-0">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          className="relative overflow-hidden rounded-[32px] border border-white/10 p-10 md:p-16"
+          className="relative overflow-hidden rounded-2xl sm:rounded-[32px] border border-white/10 p-6 sm:p-10 md:p-16 min-w-0"
           style={{
             background:
               "linear-gradient(135deg, rgba(8,18,40,0.95) 0%, rgba(12,8,35,0.95) 100%)",
@@ -30,17 +30,17 @@ function CTA() {
           <div className="pointer-events-none absolute -left-20 -bottom-20 h-64 w-64 rounded-full bg-cyan-400/8 blur-[100px]" />
 
           {/* Content */}
-          <div className="relative flex flex-col gap-10 md:flex-row md:items-center md:justify-between">
-            <div className="max-w-xl">
-              <p className="text-xs font-black uppercase tracking-[0.3em] text-violet-400 mb-4">
+          <div className="relative flex flex-col gap-8 sm:gap-10 md:flex-row md:items-center md:justify-between min-w-0">
+            <div className="max-w-xl min-w-0">
+              <p className="text-xs font-black uppercase tracking-[0.3em] text-violet-400 mb-3 sm:mb-4">
                 Let's talk
               </p>
-              <h2 className="text-4xl font-black leading-tight md:text-5xl text-white">
+              <h2 className="text-2xl sm:text-4xl md:text-5xl font-black leading-tight text-white break-words">
                 Got a project in mind?
                 <br />
                 <span className="gradient-text-brand">We want to hear it.</span>
               </h2>
-              <p className="mt-5 text-slate-400 leading-7">
+              <p className="mt-4 sm:mt-5 text-sm sm:text-base text-slate-400 leading-relaxed sm:leading-7 break-words">
                 No forms, no sales process. Just reach out directly —{" "}
                 <span className="text-white font-medium">WhatsApp or email</span>.
                 We reply fast.

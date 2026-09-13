@@ -53,29 +53,29 @@ function Hero() {
       />
 
       {/* ─── Main Grid ──────────────────────────────────── */}
-      <div className="relative z-10 mx-auto grid min-h-screen max-w-[1400px] grid-cols-1 gap-0 px-6 pt-28 pb-0 lg:grid-cols-[1fr_1fr] lg:gap-16 lg:px-12 lg:pt-0 xl:px-20">
+      <div className="relative z-10 mx-auto grid min-h-screen max-w-[1400px] grid-cols-1 gap-0 px-4 sm:px-6 pt-24 sm:pt-28 pb-8 sm:pb-0 lg:grid-cols-[1fr_1fr] lg:gap-16 lg:px-12 lg:pt-0 xl:px-20 min-w-0">
 
         {/* ══ LEFT COLUMN ═══════════════════════════════ */}
         <motion.div
           variants={container}
           initial="hidden"
           animate="show"
-          className="flex flex-col justify-center py-16 lg:py-0"
+          className="flex flex-col justify-center py-10 sm:py-16 lg:py-0 min-w-0"
         >
           {/* Status pill */}
-          <motion.div variants={item} className="mb-10 flex items-center gap-3">
+          <motion.div variants={item} className="mb-6 sm:mb-10 flex flex-wrap items-center gap-2.5 sm:gap-3">
             <div className="flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3.5 py-1.5 text-[11px] font-bold uppercase tracking-widest text-emerald-400">
               <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-emerald-400" />
               Open for work
             </div>
-            <span className="text-[11px] text-slate-700">· Est. 2024 · Pakistan</span>
+            <span className="text-[11px] text-slate-500">· Est. 2024 · Pakistan</span>
           </motion.div>
 
           {/* ── The Headline ── */}
           <motion.h1
             variants={item}
-            className="font-black leading-none tracking-[-0.04em]"
-            style={{ fontSize: "clamp(52px, 7.5vw, 110px)" }}
+            className="font-black leading-none tracking-[-0.04em] break-words"
+            style={{ fontSize: "clamp(42px, 7.5vw, 110px)" }}
           >
             {/* Line 1 — solid */}
             <span className="block text-white">Products</span>
@@ -97,8 +97,8 @@ function Hero() {
 
             {/* Line 3 — muted, thinner weight */}
             <span
-              className="block font-light text-slate-600"
-              style={{ fontSize: "clamp(28px, 4vw, 56px)", marginTop: "0.15em" }}
+              className="block font-light text-slate-500 break-words"
+              style={{ fontSize: "clamp(20px, 4vw, 56px)", marginTop: "0.15em" }}
             >
               Websites · Apps · AI SaaS
             </span>
@@ -107,49 +107,49 @@ function Hero() {
           {/* Sub-copy */}
           <motion.p
             variants={item}
-            className="mt-8 max-w-[480px] text-[15px] leading-[1.8] text-slate-500"
+            className="mt-6 sm:mt-8 max-w-[480px] text-sm sm:text-[15px] leading-relaxed sm:leading-[1.8] text-slate-400"
           >
             We're a small studio that ships fast and doesn't disappear
             after launch. From a{" "}
-            <span className="font-medium text-slate-300">Quran app with 10K+ downloads</span>
+            <span className="font-medium text-slate-200">Quran app with 10K+ downloads</span>
             {" "}to{" "}
-            <span className="font-medium text-slate-300">AI SaaS platforms</span>
+            <span className="font-medium text-slate-200">AI SaaS platforms</span>
             {" "}— everything we build is production-grade.
           </motion.p>
 
           {/* CTA buttons */}
-          <motion.div variants={item} className="mt-10 flex flex-wrap items-center gap-4">
+          <motion.div variants={item} className="mt-8 sm:mt-10 flex flex-wrap items-center gap-3 sm:gap-4">
             <a
               href="#contact"
-              className="group flex items-center gap-3 rounded-2xl bg-white px-7 py-4 text-[13px] font-black text-black transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_0_50px_rgba(255,255,255,0.15)]"
+              className="group flex w-full sm:w-auto items-center justify-center gap-3 rounded-2xl bg-white px-7 py-4 text-[13px] font-black text-black transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_0_50px_rgba(255,255,255,0.15)]"
             >
-              Start a project
+              <span>Start a project</span>
               <FaArrowRight className="transition-transform duration-300 group-hover:translate-x-1" size={12} />
             </a>
             <a
               href="https://wa.me/923098680902"
               target="_blank"
               rel="noreferrer"
-              className="flex items-center gap-2.5 rounded-2xl border border-white/10 bg-white/[0.04] px-6 py-4 text-[13px] font-semibold text-slate-300 backdrop-blur-sm transition-all duration-300 hover:border-emerald-500/40 hover:text-emerald-400"
+              className="flex w-full sm:w-auto items-center justify-center gap-2.5 rounded-2xl border border-white/10 bg-white/[0.04] px-6 py-4 text-[13px] font-semibold text-slate-300 backdrop-blur-sm transition-all duration-300 hover:border-emerald-500/40 hover:text-emerald-400"
             >
               <FaWhatsapp size={15} />
-              WhatsApp us
+              <span>WhatsApp us</span>
             </a>
           </motion.div>
 
           {/* ── Social proof strip ── */}
           <motion.div
             variants={item}
-            className="mt-14 flex items-center gap-7 border-t border-white/[0.06] pt-8"
+            className="mt-10 sm:mt-14 flex flex-wrap sm:flex-nowrap items-center gap-4 sm:gap-7 border-t border-white/[0.06] pt-6 sm:pt-8"
           >
             {[
               { n: "17+", l: "Projects" },
               { n: "10K+", l: "App Downloads" },
               { n: "4.8★", l: "Play Store" },
             ].map(({ n, l }, i) => (
-              <div key={i} className={i > 0 ? "border-l border-white/10 pl-7" : ""}>
-                <p className="text-2xl font-black text-white">{n}</p>
-                <p className="mt-0.5 text-[11px] uppercase tracking-widest text-slate-700">{l}</p>
+              <div key={i} className={i > 0 ? "border-l border-white/10 pl-4 sm:pl-7" : ""}>
+                <p className="text-xl sm:text-2xl font-black text-white">{n}</p>
+                <p className="mt-0.5 text-[10px] sm:text-[11px] uppercase tracking-widest text-slate-500">{l}</p>
               </div>
             ))}
           </motion.div>

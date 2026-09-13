@@ -26,7 +26,7 @@ function Navbar() {
   const closeMobile = () => setMobileOpen(false);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-[100] px-4 pt-3 pb-2">
+    <header className="fixed inset-x-0 top-0 z-[100] px-3 sm:px-4 pt-2.5 sm:pt-3 pb-2">
       {/* Gradient border wrapper */}
       <div
         className="mx-auto max-w-7xl rounded-[22px] p-[1px] transition-all duration-500"
@@ -40,7 +40,7 @@ function Navbar() {
         <div
           className={`
             relative flex items-center justify-between rounded-[21px]
-            px-5 py-3 transition-all duration-500
+            px-3.5 sm:px-5 py-2.5 sm:py-3 transition-all duration-500
             ${scrolled
               ? "bg-[#030712]/98 shadow-[0_8px_32px_rgba(0,0,0,0.6)] backdrop-blur-2xl"
               : "bg-[#030712]/85 backdrop-blur-xl"
@@ -48,14 +48,14 @@ function Navbar() {
           `}
         >
           {/* ── Brand ── */}
-          <Link to="/" onClick={closeMobile} className="group flex items-center gap-1">
+          <Link to="/" onClick={closeMobile} className="group flex items-center gap-1 shrink-0">
             <img
               src={logo}
               alt="Nibble+1"
-              className="h-10 w-auto object-contain drop-shadow-[0_0_8px_rgba(34,211,238,0.35)] transition-transform duration-300 group-hover:scale-105"
+              className="h-8 sm:h-10 w-auto object-contain drop-shadow-[0_0_8px_rgba(34,211,238,0.35)] transition-transform duration-300 group-hover:scale-105"
             />
             {/* Only show the text part that the logo doesn't already include */}
-            <span className="text-xl font-black tracking-tight text-white">
+            <span className="text-lg sm:text-xl font-black tracking-tight text-white">
               ibble<span className="gradient-text-brand">+1</span>
             </span>
           </Link>

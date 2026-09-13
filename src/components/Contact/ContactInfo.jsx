@@ -79,27 +79,34 @@ function ContactInfo() {
               className="
                 group
                 cursor-pointer
-                rounded-3xl
+                rounded-2xl
+                sm:rounded-3xl
                 border
                 border-white/10
                 bg-white/[0.03]
-                p-6
+                p-4
+                sm:p-6
                 backdrop-blur-xl
                 transition-all
                 duration-300
                 hover:border-cyan-400/40
                 hover:shadow-[0_0_30px_rgba(34,211,238,0.18)]
+                min-w-0
               "
             >
-              <div className="flex items-center gap-5">
+              <div className="flex items-center gap-3.5 sm:gap-5 min-w-0">
                 <div
                   className="
                     flex
-                    h-14
-                    w-14
+                    h-12
+                    w-12
+                    sm:h-14
+                    sm:w-14
+                    shrink-0
                     items-center
                     justify-center
-                    rounded-2xl
+                    rounded-xl
+                    sm:rounded-2xl
                     bg-cyan-400/10
                     text-cyan-400
                     transition-all
@@ -108,15 +115,15 @@ function ContactInfo() {
                     group-hover:text-black
                   "
                 >
-                  <Icon size={22} />
+                  <Icon size={20} className="sm:text-[22px]" />
                 </div>
 
-                <div>
-                  <h3 className="text-xl font-semibold">
+                <div className="min-w-0 flex-1">
+                  <h3 className="text-lg sm:text-xl font-semibold text-white">
                     {item.title}
                   </h3>
 
-                  <p className="mt-1 text-slate-400 transition-colors duration-300 group-hover:text-cyan-300">
+                  <p className="mt-0.5 sm:mt-1 text-sm sm:text-base text-slate-400 transition-colors duration-300 group-hover:text-cyan-300 truncate">
                     {item.value}
                   </p>
                 </div>
@@ -141,27 +148,34 @@ function ContactInfo() {
               group
               block
               cursor-pointer
-              rounded-3xl
+              rounded-2xl
+              sm:rounded-3xl
               border
               border-white/10
               bg-white/[0.03]
-              p-6
+              p-4
+              sm:p-6
               backdrop-blur-xl
               transition-all
               duration-300
               hover:border-cyan-400/40
               hover:shadow-[0_0_30px_rgba(34,211,238,0.18)]
+              min-w-0
             "
           >
-            <div className="flex items-center gap-5">
+            <div className="flex items-center gap-3.5 sm:gap-5 min-w-0">
               <div
                 className="
                   flex
-                  h-14
-                  w-14
+                  h-12
+                  w-12
+                  sm:h-14
+                  sm:w-14
+                  shrink-0
                   items-center
                   justify-center
-                  rounded-2xl
+                  rounded-xl
+                  sm:rounded-2xl
                   bg-cyan-400/10
                   text-cyan-400
                   transition-all
@@ -170,15 +184,15 @@ function ContactInfo() {
                   group-hover:text-black
                 "
               >
-                <Icon size={22} />
+                <Icon size={20} className="sm:text-[22px]" />
               </div>
 
-              <div>
-                <h3 className="text-xl font-semibold">
+              <div className="min-w-0 flex-1">
+                <h3 className="text-lg sm:text-xl font-semibold text-white">
                   {item.title}
                 </h3>
 
-                <p className="mt-1 text-slate-400 transition-colors duration-300 group-hover:text-cyan-300">
+                <p className="mt-0.5 sm:mt-1 text-sm sm:text-base text-slate-400 transition-colors duration-300 group-hover:text-cyan-300 truncate">
                   {item.value}
                 </p>
               </div>

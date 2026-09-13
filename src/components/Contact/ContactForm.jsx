@@ -14,15 +14,18 @@ function ContactForm() {
       viewport={{ once: true }}
       transition={{ duration: 0.6 }}
       className="
-        rounded-3xl
+        rounded-2xl
+        sm:rounded-3xl
         border
         border-white/10
         bg-white/[0.03]
-        p-8
+        p-5
+        sm:p-8
         backdrop-blur-xl
+        min-w-0
       "
     >
-      <h2 className="mb-2 text-3xl font-bold">
+      <h2 className="mb-2 text-2xl sm:text-3xl font-bold break-words">
         Let's Talk
       </h2>
 

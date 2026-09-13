@@ -131,7 +131,7 @@ function ServiceCard({ service, index }) {
       transition={{ duration: 0.55, delay: index * 0.08 }}
       onClick={() => setOpen(!open)}
       className={`
-        group relative cursor-pointer overflow-hidden rounded-3xl border p-7
+        group relative cursor-pointer overflow-hidden rounded-2xl sm:rounded-3xl border p-5 sm:p-7 min-w-0
         backdrop-blur-xl transition-all duration-400
         ${open
           ? isCyan
@@ -164,10 +164,10 @@ function ServiceCard({ service, index }) {
         {String(index + 1).padStart(2, "0")}
       </div>
 
-      <div className="relative z-10">
+      <div className="relative z-10 min-w-0">
         {/* Header row */}
-        <div className="flex items-start justify-between gap-4">
-          <div className="flex items-center gap-4">
+        <div className="flex items-start justify-between gap-3 sm:gap-4 min-w-0">
+          <div className="flex items-center gap-3 sm:gap-4 min-w-0 flex-1">
             {/* Icon */}
             <motion.div
               animate={{
@@ -176,7 +176,7 @@ function ServiceCard({ service, index }) {
               }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
               className={`
-                flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl transition-all duration-300
+                flex h-12 w-12 sm:h-14 sm:w-14 shrink-0 items-center justify-center rounded-xl sm:rounded-2xl transition-all duration-300
                 ${open
                   ? isCyan
                     ? "bg-cyan-400 text-black shadow-[0_0_20px_rgba(34,211,238,0.5)]"
@@ -185,14 +185,14 @@ function ServiceCard({ service, index }) {
                 }
               `}
             >
-              <Icon size={24} />
+              <Icon size={20} className="sm:text-2xl" />
             </motion.div>
 
-            <div>
-              <p className={`text-xs font-bold uppercase tracking-wider mb-1 ${isCyan ? "text-cyan-400/60" : "text-violet-400/60"}`}>
+            <div className="min-w-0 flex-1">
+              <p className={`text-[11px] sm:text-xs font-bold uppercase tracking-wider mb-0.5 sm:mb-1 truncate ${isCyan ? "text-cyan-400/60" : "text-violet-400/60"}`}>
                 {service.tagline}
               </p>
-              <h3 className="text-xl font-bold text-white">{service.title}</h3>
+              <h3 className="text-lg sm:text-xl font-bold text-white break-words">{service.title}</h3>
             </div>
           </div>
 
@@ -202,12 +202,12 @@ function ServiceCard({ service, index }) {
             transition={{ duration: 0.3 }}
             className={`mt-1 shrink-0 transition-colors ${open ? (isCyan ? "text-cyan-400" : "text-violet-400") : "text-slate-500"}`}
           >
-            <FaArrowRight size={16} />
+            <FaArrowRight size={15} />
           </motion.div>
         </div>
 
         {/* Description - always visible */}
-        <p className="mt-5 leading-7 text-slate-400 text-[15px]">
+        <p className="mt-4 sm:mt-5 leading-relaxed text-slate-400 text-sm sm:text-[15px] break-words">
           {service.description}
         </p>
 
@@ -221,20 +221,20 @@ function ServiceCard({ service, index }) {
               transition={{ duration: 0.45 }}
               className="overflow-hidden"
             >
-              <div className="mt-7 space-y-6">
+              <div className="mt-5 sm:mt-7 space-y-5 sm:space-y-6">
                 {/* Technologies */}
                 <div>
-                  <p className={`mb-3 text-xs font-bold uppercase tracking-wider ${isCyan ? "text-cyan-400" : "text-violet-400"}`}>
+                  <p className={`mb-2.5 sm:mb-3 text-xs font-bold uppercase tracking-wider ${isCyan ? "text-cyan-400" : "text-violet-400"}`}>
                     Technologies
                   </p>
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-1.5 sm:gap-2">
                     {service.technologies.map((tech, i) => (
                       <motion.span
                         key={tech}
                         initial={{ opacity: 0, scale: 0.8 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ delay: i * 0.06 }}
-                        className={`rounded-full border px-4 py-1.5 text-sm font-medium ${
+                        className={`rounded-full border px-3 sm:px-4 py-1 sm:py-1.5 text-xs sm:text-sm font-medium ${
                           isCyan
                             ? "border-cyan-400/25 bg-cyan-400/10 text-cyan-300"
                             : "border-violet-400/25 bg-violet-400/10 text-violet-300"
@@ -248,20 +248,20 @@ function ServiceCard({ service, index }) {
 
                 {/* Perfect For */}
                 <div>
-                  <p className={`mb-3 text-xs font-bold uppercase tracking-wider ${isCyan ? "text-cyan-400" : "text-violet-400"}`}>
+                  <p className={`mb-2.5 sm:mb-3 text-xs font-bold uppercase tracking-wider ${isCyan ? "text-cyan-400" : "text-violet-400"}`}>
                     Perfect For
                   </p>
-                  <div className="grid grid-cols-2 gap-2">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                     {service.perfectFor.map((item, i) => (
                       <motion.div
                         key={item}
                         initial={{ opacity: 0, x: -10 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: i * 0.07 }}
-                        className="flex items-center gap-2 text-sm text-slate-300"
+                        className="flex items-center gap-2 text-xs sm:text-sm text-slate-300"
                       >
                         <div className={`h-1.5 w-1.5 shrink-0 rounded-full ${isCyan ? "bg-cyan-400" : "bg-violet-400"}`} />
-                        {item}
+                        <span className="break-words">{item}</span>
                       </motion.div>
                     ))}
                   </div>
@@ -310,26 +310,26 @@ function Services() {
       <div className="absolute left-0 top-0 h-[500px] w-[500px] rounded-full bg-violet-600/8 blur-[200px] pointer-events-none" />
       <div className="absolute right-0 bottom-0 h-[400px] w-[400px] rounded-full bg-cyan-400/8 blur-[180px] pointer-events-none" />
 
-      <div className="relative mx-auto max-w-7xl px-6">
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 min-w-0">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 25 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mb-20 max-w-2xl"
+          className="mb-14 sm:mb-20 max-w-2xl min-w-0"
         >
-          <div className="badge-violet mb-5">
+          <div className="badge-violet mb-4 sm:mb-5">
             ✦ What We Do
           </div>
 
-          <h2 className="text-5xl font-black leading-tight md:text-6xl">
+          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black leading-tight break-words">
             Solutions Built{" "}
             <br />
             <span className="gradient-text-brand">For Every Scale</span>
           </h2>
 
-          <p className="mt-6 text-lg leading-8 text-slate-400">
+          <p className="mt-4 sm:mt-6 text-base sm:text-lg leading-relaxed sm:leading-8 text-slate-400 break-words">
             From concept to launch — we deliver complete digital solutions that help businesses
             establish, grow, and win online.
           </p>

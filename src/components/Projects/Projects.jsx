@@ -38,7 +38,7 @@ function Projects() {
       <div className="absolute left-1/2 top-0 h-[700px] w-[700px] -translate-x-1/2 rounded-full bg-cyan-400/8 blur-[250px] pointer-events-none" />
       <div className="absolute right-0 bottom-0 h-[400px] w-[400px] rounded-full bg-violet-600/8 blur-[200px] pointer-events-none" />
 
-      <div className="relative mx-auto max-w-7xl px-6">
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 min-w-0">
 
         {/* Section Heading */}
         <motion.div
@@ -46,38 +46,38 @@ function Projects() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          className="mb-24"
+          className="mb-16 sm:mb-24 min-w-0"
         >
-          <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-            <div>
-              <div className="badge-cyan mb-5">
+          <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between min-w-0">
+            <div className="min-w-0">
+              <div className="badge-cyan mb-4 sm:mb-5">
                 ✦ Portfolio
               </div>
 
-              <h2 className="text-5xl font-black leading-tight md:text-6xl">
+              <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black leading-tight break-words">
                 Products &
                 <br />
                 <span className="gradient-text-brand">Client Work</span>
               </h2>
 
-              <p className="mt-6 max-w-xl text-lg leading-8 text-slate-400">
+              <p className="mt-4 sm:mt-6 max-w-xl text-base sm:text-lg leading-relaxed sm:leading-8 text-slate-400 break-words">
                 From 10K+ download mobile apps to autonomous AI SaaS platforms — every build pushes what's possible.
               </p>
             </div>
 
             {/* Stats mini-grid */}
-            <div className="flex gap-8 md:gap-12 shrink-0">
+            <div className="flex flex-wrap sm:flex-nowrap gap-5 sm:gap-8 md:gap-12 shrink-0">
               <div className="text-center">
-                <p className="stat-number text-4xl">17+</p>
-                <p className="mt-1 text-xs uppercase tracking-wider text-slate-500">Projects</p>
+                <p className="stat-number text-2xl sm:text-4xl">17+</p>
+                <p className="mt-1 text-[11px] sm:text-xs uppercase tracking-wider text-slate-500">Projects</p>
               </div>
               <div className="text-center">
-                <p className="stat-number text-4xl">10K+</p>
-                <p className="mt-1 text-xs uppercase tracking-wider text-slate-500">App Downloads</p>
+                <p className="stat-number text-2xl sm:text-4xl">10K+</p>
+                <p className="mt-1 text-[11px] sm:text-xs uppercase tracking-wider text-slate-500">App Downloads</p>
               </div>
               <div className="text-center">
-                <p className="stat-number text-4xl">6+</p>
-                <p className="mt-1 text-xs uppercase tracking-wider text-slate-500">Countries</p>
+                <p className="stat-number text-2xl sm:text-4xl">6+</p>
+                <p className="mt-1 text-[11px] sm:text-xs uppercase tracking-wider text-slate-500">Countries</p>
               </div>
             </div>
           </div>
@@ -102,12 +102,12 @@ function Projects() {
                 ✦ Flagship Innovations
               </div>
 
-              <h3 className="text-4xl font-black md:text-5xl text-white">
+              <h3 className="text-2xl sm:text-4xl md:text-5xl font-black text-white break-words">
                 Engineered for Scale
                 <span className="gradient-text-brand"> & Impact</span>
               </h3>
 
-              <p className="mt-4 max-w-2xl text-slate-400">
+              <p className="mt-3 sm:mt-4 max-w-2xl text-sm sm:text-base text-slate-400 break-words">
                 Our high-scale mobile applications and autonomous AI SaaS platforms — built with cutting-edge engineering and proven in production.
               </p>
             </motion.div>

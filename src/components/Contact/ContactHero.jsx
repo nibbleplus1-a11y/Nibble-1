@@ -2,9 +2,9 @@ import { motion } from "framer-motion";
 
 function ContactHero() {
   return (
-    <div className="relative overflow-hidden px-6 pb-4 pt-4">
-      <div className="mx-auto max-w-7xl">
-        <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+    <div className="relative overflow-hidden px-4 sm:px-6 pb-4 pt-4 min-w-0">
+      <div className="mx-auto max-w-7xl min-w-0">
+        <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between min-w-0">
 
           {/* Left — heading */}
           <motion.div
@@ -12,9 +12,10 @@ function ContactHero() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
+            className="min-w-0"
           >
-            <div className="badge-cyan mb-5">✦ Contact</div>
-            <h2 className="text-5xl font-black leading-tight md:text-6xl text-white">
+            <div className="badge-cyan mb-4 sm:mb-5">✦ Contact</div>
+            <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black leading-tight text-white break-words">
               Skip the forms. <br />
               <span className="gradient-text-brand">Just reach out.</span>
             </h2>
