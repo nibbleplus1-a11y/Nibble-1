@@ -34,12 +34,12 @@ function Hero() {
         }}
       />
 
-      {/* Single clean diagonal sweep of light — no orbs */}
+      {/* Soft Ambient Radial Lights — scales gracefully at ANY zoom, no harsh diagonal lines */}
       <div
         className="pointer-events-none absolute inset-0 z-0"
         style={{
           background:
-            "conic-gradient(from 230deg at 55% 30%, rgba(124,58,237,0.11) 0deg, rgba(34,211,238,0.07) 60deg, transparent 120deg)",
+            "radial-gradient(ellipse 65% 55% at 65% 35%, rgba(124,58,237,0.13), transparent 70%), radial-gradient(ellipse 55% 50% at 20% 50%, rgba(34,211,238,0.08), transparent 65%)",
         }}
       />
 
@@ -53,17 +53,17 @@ function Hero() {
       />
 
       {/* ─── Main Grid ──────────────────────────────────── */}
-      <div className="relative z-10 mx-auto grid min-h-screen max-w-[1400px] grid-cols-1 gap-0 px-4 sm:px-6 pt-24 sm:pt-28 pb-8 sm:pb-0 lg:grid-cols-[1fr_1fr] lg:gap-16 lg:px-12 lg:pt-0 xl:px-20 min-w-0">
+      <div className="relative z-10 mx-auto grid min-h-[calc(100svh-4rem)] max-w-7xl grid-cols-1 gap-12 px-4 sm:px-6 pt-36 sm:pt-40 lg:pt-44 pb-16 sm:pb-24 lg:grid-cols-12 lg:gap-10 items-center min-w-0">
 
         {/* ══ LEFT COLUMN ═══════════════════════════════ */}
         <motion.div
           variants={container}
           initial="hidden"
           animate="show"
-          className="flex flex-col justify-center py-10 sm:py-16 lg:py-0 min-w-0"
+          className="flex flex-col justify-center min-w-0 lg:col-span-7"
         >
           {/* Status pill */}
-          <motion.div variants={item} className="mb-6 sm:mb-10 flex flex-wrap items-center gap-2.5 sm:gap-3">
+          <motion.div variants={item} className="mb-6 sm:mb-8 flex flex-wrap items-center gap-2.5 sm:gap-3">
             <div className="flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3.5 py-1.5 text-[11px] font-bold uppercase tracking-widest text-emerald-400">
               <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-emerald-400" />
               Open for work
@@ -75,7 +75,7 @@ function Hero() {
           <motion.h1
             variants={item}
             className="font-black leading-none tracking-[-0.04em] break-words"
-            style={{ fontSize: "clamp(42px, 7.5vw, 110px)" }}
+            style={{ fontSize: "clamp(42px, 6.5vw, 96px)" }}
           >
             {/* Line 1 — solid */}
             <span className="block text-white">Products</span>
@@ -98,7 +98,7 @@ function Hero() {
             {/* Line 3 — muted, thinner weight */}
             <span
               className="block font-light text-slate-500 break-words"
-              style={{ fontSize: "clamp(20px, 4vw, 56px)", marginTop: "0.15em" }}
+              style={{ fontSize: "clamp(20px, 3.5vw, 48px)", marginTop: "0.15em" }}
             >
               Websites · Apps · AI SaaS
             </span>
@@ -156,14 +156,14 @@ function Hero() {
         </motion.div>
 
         {/* ══ RIGHT COLUMN — Visual ═════════════════════ */}
-        <div className="relative hidden items-center justify-center lg:flex">
+        <div className="relative hidden items-center justify-center lg:flex lg:col-span-5">
 
           {/* ── Main browser mockup ── */}
           <motion.div
             initial={{ opacity: 0, y: 40, scale: 0.97 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ delay: 0.35, duration: 1, ease: EASE }}
-            className="relative w-full max-w-[560px]"
+            className="relative w-full max-w-[500px]"
           >
             {/* Browser chrome */}
             <div className="overflow-hidden rounded-[20px] border border-white/12 shadow-[0_40px_100px_rgba(0,0,0,0.7)]">
