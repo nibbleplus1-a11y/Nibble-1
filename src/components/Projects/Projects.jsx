@@ -68,7 +68,7 @@ function Projects() {
             {/* Stats mini-grid */}
             <div className="flex flex-wrap sm:flex-nowrap gap-5 sm:gap-8 md:gap-12 shrink-0">
               <div className="text-center">
-                <p className="stat-number text-2xl sm:text-4xl">17+</p>
+                <p className="stat-number text-2xl sm:text-4xl">19+</p>
                 <p className="mt-1 text-[11px] sm:text-xs uppercase tracking-wider text-slate-500">Projects</p>
               </div>
               <div className="text-center">

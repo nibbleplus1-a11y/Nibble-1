@@ -143,7 +143,7 @@ function Hero() {
             className="mt-10 sm:mt-14 flex flex-wrap sm:flex-nowrap items-center gap-4 sm:gap-7 border-t border-white/[0.06] pt-6 sm:pt-8"
           >
             {[
-              { n: "17+", l: "Projects" },
+              { n: "19+", l: "Projects" },
               { n: "10K+", l: "App Downloads" },
               { n: "4.8★", l: "Play Store" },
             ].map(({ n, l }, i) => (

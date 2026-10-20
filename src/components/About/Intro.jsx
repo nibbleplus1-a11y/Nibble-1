@@ -3,7 +3,7 @@ import { FaBolt } from "react-icons/fa";
 
 const highlights = [
   { value: "2+", label: "Years of Experience" },
-  { value: "17+", label: "Live Projects" },
+  { value: "19+", label: "Live Projects" },
   { value: "10K+", label: "App Downloads" },
   { value: "95%+", label: "Client Satisfaction" },
 ];

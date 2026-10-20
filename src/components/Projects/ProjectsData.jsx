@@ -15,6 +15,8 @@ import murraycourt from "../../assets/images/Projects/murraycourt.png";
 import hawthorne from "../../assets/images/Projects/hawthorne.png";
 import quranapp from "../../assets/images/Projects/quranapp.png";
 import claylite from "../../assets/images/Projects/claylite.png";
+import heartcrafted from "../../assets/images/Projects/heartcrafted.png";
+import cuttingmaster from "../../assets/images/Projects/cuttingmaster.png";
 
 const projects = [
   {
@@ -208,6 +210,32 @@ const projects = [
       "A community-centered historical organization dedicated to preserving local heritage, managing museum archives, and organizing cultural events.",
     technologies: ["WordPress", "Donation Portal", "Non-Profit Design"],
     live: "https://hawthornehistoricalsociety.org/",
+    github: "",
+    featured: false,
+  },
+
+  {
+    id: 18,
+    title: "Heart Crafted",
+    category: "Arts & Crafts Studio · Handmade",
+    image: heartcrafted,
+    description:
+      "A handmade arts and crafts studio featuring bespoke creations in polymer clay and resin jewelry, luxury aromatic candles, fridge magnets, and artisan accessories.",
+    technologies: ["WordPress", "WooCommerce", "Elementor", "Responsive Design"],
+    live: "https://heartcrafted.pk/",
+    github: "",
+    featured: false,
+  },
+
+  {
+    id: 19,
+    title: "Cutting Master",
+    category: "CNC Laser & Metal Fabrication",
+    image: cuttingmaster,
+    description:
+      "Lahore's premier CNC cutting workshop since 2010 specializing in precision fiber laser cutting, plasma & flame cutting, CNC bending, and laser-cut metal decor.",
+    technologies: ["WordPress", "WooCommerce", "Industrial Web Design", "SEO"],
+    live: "https://cuttingmasterpk.com/",
     github: "",
     featured: false,
   },
